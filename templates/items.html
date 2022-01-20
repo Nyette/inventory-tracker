@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}
+Items
+{% endblock %}
+
+{% block header %}
+<h1>Items</h1>
+<ul class="nav justify-content-center">
+    <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/items/create">Create Item</a>
+    </li>
+</ul>
+{% endblock %}
+
+{% block main %}
+{% if items %}
+    <div>
+        {% for item in items %}
+            <div>
+                <p><strong><a href="/items/{{ item.id }}">{{ item.name }}</a></strong></p>
+                <p>Count: {{ item.count }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>There are no items.</p>
+{% endif %}
+{% endblock %}
